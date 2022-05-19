@@ -1,0 +1,30 @@
+.logo{
+    max-width: 5%;
+    
+}
+.navbar-brand{
+    margin-top: 0px;
+    width: 100%;
+    font-size: xx-large;
+    text-align: center;
+}
+.MetaMaskLogo{
+    max-width: 18%;
+}
+.btn.btn-danger {
+    border-color: rgb(255, 149, 0);
+    color: rgb(255, 149, 0);
+    background-color: white;
+    text-align: center;
+    width:200px;
+    padding-right: 50px;
+    position: absolute;
+    right:10px;
+    bottom:50px;
+    transition: 0.15s;
+}
+.btn.btn-danger:hover{
+    color: black;
+    background-color: rgb(255, 149, 0);
+
+}
