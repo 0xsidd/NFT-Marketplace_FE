@@ -1,8 +1,8 @@
 import React from 'react'
-import { init,tokenURI,getMyNFT } from './contractCall';
+import { Init,TokenURI,GetMyNFT } from './ContractCall';
 import {useState, useEffect} from "react"
 
-function myNFTCollection() {
+function MyNFTCollection() {
    
   const [formData, setFormData] = useState({
     });
@@ -16,8 +16,7 @@ function myNFTCollection() {
   });
   const [dataURI, setDataURI] = useState({
   });
-  const [HTMLData, SetHTMLData] = useState({
-  });
+
   
   const [currentCount, setCurrentCount] = useState(0);
 
@@ -37,8 +36,8 @@ function myNFTCollection() {
 
 
   const fetchTokenData = async()=>{ 
-    await init();
-    await getMyNFT().then(function(data){
+    await Init();
+    await GetMyNFT().then(function(data){
       if(data.length>0){
           for(let i=0;i<data.length;i++){
             tokenPriceData[i] = (data[i].price)/1e18;
@@ -61,7 +60,7 @@ function myNFTCollection() {
       else{
           for(let i=0;i<dataLength;i++){
             let dataFinalSize = [];
-            await tokenURI(parseInt(tokenIdData[i])).then(function(data){
+            await TokenURI(parseInt(tokenIdData[i])).then(function(data){
               dataFinalSize[i] = (data) 
               dataArray.push(dataFinalSize[i]);
             })
@@ -125,4 +124,4 @@ return (
   currentItem
 )
 }
-export default myNFTCollection
+export default MyNFTCollection

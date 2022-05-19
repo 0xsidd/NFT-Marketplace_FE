@@ -1,13 +1,11 @@
 //import './App.css';
 import React, { Component } from 'react'
-import NavBar from './components/navBar';
-import Footer from './components/footer';
-import Button from './components/button';
-import MintNFT from './components/mintNFT';
-import BuyNFT from './components/buyNFT';
-import SideBar from './components/sideBar';
-import ReSellNFT from './components/reSellNFT';
-import MyNFTCollection from './components/myNFTCollection';
+import NavBar from './components/NavBar';
+import Button from './components/Button';
+import MintNFT from './components/MintNFT';
+import BuyNFT from './components/BuyNFT';
+import ReSellNFT from './components/ReSellNFT';
+import MyNFTCollection from './components/MyNFTCollection';
 import {
   BrowserRouter as Router,
   Routes ,
@@ -24,13 +22,13 @@ function App() {
                 <Routes >
                     <Route exact path="/" 
                         element={<Button/>} />
-                    <Route exact path="/mintNFT" 
+                    <Route exact path="/MintNFT" 
                         element={<MintNFT/>} />
-                    <Route exact path="/sellNFT" 
+                    <Route exact path="/BuyNFT" 
                         element={<BuyNFT/>} />    
-                    <Route exact path="/reSellNFT" 
+                    <Route exact path="/ReSellNFT" 
                         element={<ReSellNFT/>} />   
-                    <Route exact path="/myNFTCollection" 
+                    <Route exact path="/MyNFTCollection" 
                         element={<MyNFTCollection/>} />  
                 </Routes >
             </Router>

@@ -6,20 +6,20 @@ import './button.css'
 
 
 
-function button() {
+function Button() {
     
     const history = useNavigate();
     const nftMintPage = () => {
-        history("/mintNFT")
+        history("/MintNFT")
     }
     const nftBuyPage = () => {
-        history("/sellNFT")
+        history("/BuyNFT")
     }
     const nftResellPage=()=>{
-        history("/reSellNFT")
+        history("/ReSellNFT")
     }
     const nftCollection=()=>{
-        history("/myNFTCollection")
+        history("/MyNFTCollection")
     }
     return (
         <div className="text-center">
@@ -30,25 +30,4 @@ function button() {
         </div>
     )
 }
-export default button
-
-
-
-
-// class button extends Component {
-    
-//     nftMintPage(e)  {
-//         const history = useNavigate();
-//         history("/mintNFT")
-//     }
-//   render() {
-//     return (
-//                 <div className="text-center">
-//                     <button type="button" className="btn btn-primary btn-lg btn-block " onClick={this.nftMintPage}>Mint NFT</button>
-//                     <button type="button" className="btn btn-secondary btn-lg btn-block" >Buy NFT</button>
-//                 </div>
-//     )
-//   }
-// }
-
-// export default button
+export default Button

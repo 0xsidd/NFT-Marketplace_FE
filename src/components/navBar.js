@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Logo from './logo.png'
 import './navBar.css'
 import Mlogo from './MetaMask.png'
-import {init} from './contractCall'
+import {Init} from './ContractCall'
 
 
 
-export class navBar extends Component {
+export class NavBar extends Component {
   constructor(props) {
     super(props)
   
@@ -16,7 +16,7 @@ export class navBar extends Component {
     }
   }
   handleChangeForMetaMaskConnection=async(event)=>{
-    await init();
+    await Init();
     this.setState({
         connect:"Connected to MetaMask"
     })
@@ -34,4 +34,4 @@ export class navBar extends Component {
   }
 }
 
-export default navBar
+export default NavBar

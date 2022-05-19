@@ -1,9 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from "react"
-import { createMarketSale,getItemListed,init,tokenURI } from './contractCall';
+import { CreateMarketSale,GetItemListed,Init,TokenURI } from './ContractCall';
 import './buyNFT.css'
 
-function  buyNFT() {
+function  BuyNFT() {
     const [formData, setFormData] = useState({
 	  });
     const [tokenPrice, setTokenPrice] = useState({
@@ -33,8 +33,8 @@ function  buyNFT() {
 
 
     const fetchTokenData = async()=>{ 
-      await init();
-      await getItemListed().then(function(data){
+      await Init();
+      await GetItemListed().then(function(data){
         for(let i=0;i<data.length;i++){
           tokenPriceData[i] = (data[i].price)/1e18;
           tokenIdData[i] = data[i].tokenId;
@@ -48,7 +48,7 @@ function  buyNFT() {
       }) 
       for(let i=0;i<dataLength;i++){
         let dataFinalSize = [];
-        await tokenURI(parseInt(tokenIdData[i])).then(function(data){
+        await TokenURI(parseInt(tokenIdData[i])).then(function(data){
           dataFinalSize[i] = (data) 
           dataArray.push(dataFinalSize[i]);
         })
@@ -67,9 +67,9 @@ function  buyNFT() {
 
 
   const handleCheckForBuy = async(e)=>{
-    await init();
+    await Init();
     e.preventDefault();
-    await createMarketSale(currentCount+1);
+    await CreateMarketSale(currentCount+1);
     alert("Bought token sucessfully");
     e.preventDefault();
   }
@@ -127,4 +127,4 @@ function  buyNFT() {
   )
 }
 
-export default buyNFT
+export default BuyNFT

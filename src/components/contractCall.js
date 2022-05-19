@@ -607,7 +607,7 @@ let contractABI = [
 let contract;
 let listingPrice;
 
-export const init=async()=>{
+export const Init=async()=>{
     provider = window.ethereum;
     if(typeof provider!=='undefined'){
       
@@ -627,44 +627,44 @@ export const init=async()=>{
     web3 = new Web3(provider);
 	contract = new web3.eth.Contract(contractABI,contractAddress);
 } 
-export default init;
+export default Init;
 
 
 
-export const createToken = async(_tokenURI,_tokenPrice)=>{
+export const CreateToken = async(_tokenURI,_tokenPrice)=>{
 	listingPrice = await contract.methods.getListingPrice().call();
 	await contract.methods.createToken(_tokenURI,_tokenPrice).send({from:selectedAccount,value:listingPrice})
 }
 
-export const createMarketSale = async(_tokenId)=>{
+export const CreateMarketSale = async(_tokenId)=>{
 	let tokenValue = await contract.methods.getprice(_tokenId).call();
 	await contract.methods.createMarketSale(_tokenId).send({from:selectedAccount,value:tokenValue});
 }
 
-export const getprice = async(_tokenId)=>{
+export const Getprice = async(_tokenId)=>{
 	return(await contract.methods.getprice(_tokenId).call());
 	
 }
-export const getListingPrice = async()=>{
+export const GetListingPrice = async()=>{
 	return (await contract.methods.getListingPrice().call());
 	
 }
 
-export const getItemListed = async()=>{
+export const GetItemListed = async()=>{
 	return (await contract.methods.getItemListed().call());
 	
 }
 
-export const tokenURI = async(_tokenId)=>{
+export const TokenURI = async(_tokenId)=>{
 	return( await contract.methods.tokenURI(_tokenId).call());
 	
 }
 
-export const resellToken = async(_tokenId,_tokenPrice)=>{
+export const ResellToken = async(_tokenId,_tokenPrice)=>{
 	listingPrice = await contract.methods.getListingPrice().call();
 	await contract.methods.resellToken(_tokenId,_tokenPrice).send({from:selectedAccount,value:listingPrice});
 }
-export const getMyNFT = async()=>{
+export const GetMyNFT = async()=>{
 	let myNFT = await contract.methods.getMyNFT(selectedAccount).call();
 	return(myNFT);
 }

@@ -3,22 +3,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './mintNFT.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, fachevron } from '@fortawesome/fontawesome-free-solid'
-import {createToken,getListingPrice,init} from './contractCall'
+import {CreateToken,GetListingPrice,Init} from './ContractCall'
 
 
 
-function mintNFT() {
+function MintNFT() {
 	const [formData, setFormData] = useState({
 		title: "",
 		body: "",
 	  });
 	  const handleSubmit = async(e) => {
-		  await init();
+		  await Init();
 		  let tokenURI = formData.title;
 		  let tokenPrice = parseInt(formData.body);
 		  e.preventDefault();
-		  console.log( await getListingPrice);
-		  await createToken(tokenURI,tokenPrice);
+		  console.log( await GetListingPrice);
+		  await CreateToken(tokenURI,tokenPrice);
 		  alert("Token created sucessfully")
 		  e.preventDefault();
 	
@@ -49,7 +49,7 @@ function mintNFT() {
     )
 }
 
-export default mintNFT
+export default MintNFT
 
 
 

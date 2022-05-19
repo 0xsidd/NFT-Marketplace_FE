@@ -1,19 +1,19 @@
 import React, {useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {resellToken,init} from './contractCall'
+import {ResellToken,Init} from './ContractCall'
 
- function reSellNFT() {
+ function ReSellNFT() {
     const [tokenData, settokenData] = useState({
 		tokenId: "",
 		tokenPrice: "",
 	  });
 	  const handleSubmitForReSell = async(e) => {
-          await init();
+          await Init();
           e.preventDefault();
 		  let tokenId = parseInt(tokenData.tokenId);
 		  let tokenPrice = parseInt(tokenData.tokenPrice);
 		  e.preventDefault();
-		  await resellToken(tokenId,tokenPrice);
+		  await ResellToken(tokenId,tokenPrice);
 		  alert("Token re-sold sucessfully")
 		  e.preventDefault();
       }
@@ -42,4 +42,4 @@ import {resellToken,init} from './contractCall'
 }
 
 
-export default reSellNFT
+export default ReSellNFT
